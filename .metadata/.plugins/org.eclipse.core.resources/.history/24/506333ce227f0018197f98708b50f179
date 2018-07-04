@@ -1,0 +1,45 @@
+package br.unipe.testeUnit.tests.model;
+
+import org.easymock.EasyMock;
+import org.easymock.EasyMockRule;
+import org.easymock.EasyMockSupport;
+import org.easymock.Mock;
+import org.easymock.TestSubject;
+import org.junit.Rule;
+import org.junit.Test;
+
+import br.unipe.testeUnit.model.CalcularDesconto;
+import br.unipe.testeUnit.model.Cliente;
+import br.unipe.testeUnit.model.Produto;
+
+public class CalcularDescontoTest extends EasyMockSupport {
+	
+	@Rule
+	public EasyMockRule rule = new EasyMockRule(this);
+	
+	@Mock
+	private Produto produto;
+	
+	@Mock
+	private Cliente cliente;
+	
+	@TestSubject
+	private final CalcularDesconto driver = new CalcularDesconto();
+	
+	@Test
+	public void testCalcularvalorComDescontoClienteAMenorQue100(){
+		EasyMock.expect(cliente.getTipoCliente()).andReturn("A");
+		EasyMock.expect(produto.getValor()).andReturn(99.00);
+		
+		replayAll();
+		
+		driver.setCliente(cliente);
+		driver.addProdutos(produto, 1);
+		double valorComDesconto = driver.calcularDesconto(produto);
+		
+		assertTrue(valorComDesconto == 89.10);
+		
+		verifyAll();
+	}
+
+}

@@ -1,0 +1,17 @@
+package br.unipe.testeUnit.controller;
+
+public class DescontoUtils {
+	
+	public double calcularFatorDeDesconto(String tipoCliente, Double qdade) {
+		double desc = 0;
+		
+		if(tipoCliente.equals("A")) {
+			
+		} else if(tipoCliente.equals("B")) {
+			
+		} else if(tipoCliente.equals("C")) {
+			
+		}
+	}
+
+}

@@ -1,0 +1,13 @@
+package br.unipe.testeUnit.model;
+
+public interface Produto {
+
+	public double getValor();
+	
+	public void setValor(double valor);
+	
+	public double getQdadeEstoque();
+	
+	public void setQdadeEstoque(int qdade);
+	
+}

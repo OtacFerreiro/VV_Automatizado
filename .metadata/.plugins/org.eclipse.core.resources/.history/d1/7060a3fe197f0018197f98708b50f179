@@ -1,0 +1,20 @@
+package br.unipe.testeUnit.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import br.unipe.testeUnit.model.Cliente;
+import br.unipe.testeUnit.model.Produto;
+
+public class CalcularDescontoController {
+	
+	private Cliente cliente;
+	
+	private Map<Produto, Integer> produtos;
+	
+	public CalcularDescontoController() {
+		super();
+		this.produtos = new HashMap<Produto, Integer>();
+	}
+
+}

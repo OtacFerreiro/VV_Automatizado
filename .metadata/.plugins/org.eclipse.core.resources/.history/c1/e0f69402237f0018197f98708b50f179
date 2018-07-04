@@ -1,0 +1,43 @@
+package br.unipe.testeUnit.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class CalcularDesconto {
+	
+	private Cliente cliente;
+	
+	private Map<Produto, Double> produtos;
+	
+	public CalcularDesconto() {
+		super();
+		this.produtos = new HashMap<Produto, Double>();
+	}
+
+	public Map<Produto, Double> getProdutos() {
+		if(produtos == null) {
+			produtos = new HashMap<Produto, Double>();
+		}
+		
+		return produtos;
+	}
+
+	public void setProdutos(Map<Produto, Double> produtos) {
+		this.produtos = produtos;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	public void addProdutos(Produto p, Double qdade) {
+		if(!getProdutos().containsKey(p)) {
+			this.addProdutos(p, qdade);
+		}
+	}
+
+}

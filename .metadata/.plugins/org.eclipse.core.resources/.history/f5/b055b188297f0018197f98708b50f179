@@ -1,0 +1,61 @@
+package br.unipe.testeUnit.tests.model;
+
+import static org.junit.Assert.assertTrue;
+
+import org.easymock.EasyMock;
+import org.easymock.EasyMockRule;
+import org.easymock.EasyMockSupport;
+import org.easymock.Mock;
+import org.easymock.TestSubject;
+import org.junit.Rule;
+import org.junit.Test;
+
+import br.unipe.testeUnit.model.CalculadoraDesconto;
+import br.unipe.testeUnit.model.Cliente;
+import br.unipe.testeUnit.model.Produto;
+
+public class CalcularDescontoTest extends EasyMockSupport {
+	
+	public static final Double VALOR_PRODUTO = 1000d;
+	public static final Integer QDADE_X_PRODUTO = 10;
+	public static final Integer QDADE_Y_PRODUTO = 100;
+	public static final Integer QDADE_Z_PRODUTO = 1000;
+	
+	@Rule
+	public EasyMockRule rule = new EasyMockRule(this);
+	
+	@Mock
+	private Produto produto;
+	
+	@Mock
+	private Cliente cliente;
+	
+	@TestSubject
+	private final CalculadoraDesconto driver = new CalculadoraDesconto();
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMenorQue100(){
+		String tipoCliente = "A";
+		
+		System.out.println(">>> TIPO CLIENTE: A");
+		System.out.println(">>> VALOR DO PRODUTO UTILIZADO: " + VALOR_PRODUTO);
+		
+		EasyMock.expect(cliente.getTipoCliente()).andReturn(tipoCliente);
+		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);
+		
+		replayAll();
+		
+		System.out.println(">>> QUANTIDADE DO PRODUTO UTILIZADO: " + QDADE_X_PRODUTO);
+		
+		driver.setCliente(cliente);
+		driver.addProdutos(produto, QDADE_X_PRODUTO);
+		double valorComDesconto = driver.calcularDesconto(produto);
+		
+		System.out.println(">>> VALOR DO PRODUTO COM DESCONTO: " + valorComDesconto);
+		
+		assertTrue(valorComDesconto == 900d);
+		
+		verifyAll();
+	}
+
+}

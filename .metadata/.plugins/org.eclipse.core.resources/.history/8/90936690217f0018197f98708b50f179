@@ -1,0 +1,13 @@
+package br.unipe.testeUnit.tests.model;
+
+import org.easymock.EasyMockRule;
+import org.easymock.EasyMockSupport;
+
+import static org.junit.Assert.*;
+
+public class CalcularDescontoTest extends EasyMockSupport {
+	
+	@Rule
+	public EasyMockRule rule = new EasyMockRule(this);
+
+}

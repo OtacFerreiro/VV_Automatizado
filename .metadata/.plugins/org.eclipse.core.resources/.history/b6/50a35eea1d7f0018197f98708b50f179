@@ -1,0 +1,7 @@
+package br.unipe.testeUnit.tests.model;
+
+import org.easymock.EasyMockSupport;
+
+public class CalcularDescontoTest extends EasyMockSupport {
+
+}

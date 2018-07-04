@@ -1,0 +1,15 @@
+package br.unipe.testeUnit.model;
+
+public class Cliente {
+	
+	private String tipoCliente;
+
+	public String getTipoCliente() {
+		return tipoCliente;
+	}
+
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}
+
+}
