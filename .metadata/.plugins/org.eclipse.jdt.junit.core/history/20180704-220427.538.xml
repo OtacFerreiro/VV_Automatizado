@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CalcularDescontoMockTest" project="SiteCalcularDesconto" tests="9" started="9" failures="0" errors="0" ignored="0">
+  <testsuite name="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.521">
+    <testcase name="testCalcularValorComDescontoClienteAMenorQue100" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.423"/>
+    <testcase name="testCalcularValorComDescontoClienteBMenorQue100" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.005"/>
+    <testcase name="testCalcularValorComDescontoClienteCMenorQue100" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.005"/>
+    <testcase name="testCalcularValorComDescontoClienteCMaiorQue1000" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.006"/>
+    <testcase name="testCalcularValorComDescontoClienteBMaiorQue1000" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.016"/>
+    <testcase name="testCalcularValorComDescontoClienteAMaiorQue1000" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.026"/>
+    <testcase name="testCalcularValorComDescontoClienteCMaiorQue100MenorQue1000" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.024"/>
+    <testcase name="testCalcularValorComDescontoClienteBMaiorQue100MenorQue1000" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.006"/>
+    <testcase name="testCalcularValorComDescontoClienteAMaiorQue100MenorQue1000" classname="br.unipe.testeInt.tests.model.CalcularDescontoMockTest" time="0.008"/>
+  </testsuite>
+</testrun>

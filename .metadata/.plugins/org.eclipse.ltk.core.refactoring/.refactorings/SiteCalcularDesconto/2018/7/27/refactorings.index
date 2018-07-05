@@ -3,3 +3,8 @@
 1530664898601	Rename type 'CalcularDesconto'
 1530665013226	Rename type 'CalcularoraDesconto'
 1530669508771	Delete element
+1530750481704	Rename package 'br.unipe.testeUnit.model'
+1530750495614	Rename package 'br.unipe.testeUnit.controller'
+1530750516177	Rename package 'br.unipe.testeUnit.tests.model'
+1530751374584	Rename type 'CalcularDescontoTest'
+1530751386760	Copy compilation unit

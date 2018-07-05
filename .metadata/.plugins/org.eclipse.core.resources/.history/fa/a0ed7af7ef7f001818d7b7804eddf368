@@ -1,0 +1,23 @@
+package br.unipe.testeInt.stubs;
+
+import br.unipe.testeInt.model.Produto;
+
+public class ProdutoStub implements Produto {
+
+	@Override
+	public double getValor() {
+		return 1000d;
+	}
+
+	@Override
+	public void setValor(double valor) {}
+
+	@Override
+	public double getQdadeEstoque() {
+		return 0;
+	}
+
+	@Override
+	public void setQdadeEstoque(int qdade) {}
+
+}

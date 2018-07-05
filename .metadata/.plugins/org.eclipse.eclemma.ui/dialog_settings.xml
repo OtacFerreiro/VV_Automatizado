@@ -3,6 +3,7 @@
 	<section name="SessionExportWizard">
 		<item value="HTML" key="SessionExportPage1.format"/>
 		<list key="SessionExportPage1.destinations">
+			<item value="C:\Users\Otacilio\Documents\6 - Projetos\posModuloTeste\SiteCalcularDesconto\relatorios\TesteIntegrado"/>
 			<item value="C:\Users\Otacilio\Desktop"/>
 		</list>
 	</section>

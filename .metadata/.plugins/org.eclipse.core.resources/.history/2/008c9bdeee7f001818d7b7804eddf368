@@ -1,0 +1,5 @@
+package br.unipe.testeInt.stubs;
+
+public class ProdutoStub implements Produto {
+
+}

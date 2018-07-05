@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CalcularDescontoStubTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">br.unipe.testeInt.tests.model (04/07/2018 22:10:54)</a> &gt; <a href="../../index.html" class="el_group">SiteCalcularDesconto</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">br.unipe.testeInt.tests.model</a> &gt; <span class="el_source">CalcularDescontoStubTest.java</span></div><h1>CalcularDescontoStubTest.java</h1><pre class="source lang-java linenums">package br.unipe.testeInt.tests.model;
+
+import static org.junit.Assert.assertTrue;
+
+import org.easymock.EasyMockSupport;
+import org.easymock.TestSubject;
+import org.junit.Test;
+
+import br.unipe.testeInt.model.CalculadoraDesconto;
+import br.unipe.testeInt.model.Cliente;
+import br.unipe.testeInt.model.Produto;
+import br.unipe.testeInt.stubs.ClienteAStub;
+import br.unipe.testeInt.stubs.ClienteBStub;
+import br.unipe.testeInt.stubs.ClienteCStub;
+import br.unipe.testeInt.stubs.ProdutoStub;
+
+<span class="nc" id="L17">public class CalcularDescontoStubTest extends EasyMockSupport {</span>
+
+<span class="nc" id="L19">	public static final Integer QDADE_X_PRODUTO = 10;</span>
+<span class="nc" id="L20">	public static final Integer QDADE_Y_PRODUTO = 100;</span>
+<span class="nc" id="L21">	public static final Integer QDADE_Z_PRODUTO = 1000;</span>
+	
+	@TestSubject
+<span class="nc" id="L24">	private final CalculadoraDesconto driver = new CalculadoraDesconto();</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMenorQue100(){		
+<span class="nc" id="L28">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_X_PRODUTO);</span>
+		
+<span class="nc" id="L30">		Cliente cliente = new ClienteAStub();</span>
+<span class="nc" id="L31">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L33">		driver.setCliente(cliente);</span>
+<span class="nc" id="L34">		driver.addProdutos(produto, QDADE_X_PRODUTO);</span>
+<span class="nc" id="L35">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L37">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L39" title="All 2 branches missed.">		assertTrue(valorComDesconto == 900d);</span>
+<span class="nc" id="L40">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMaiorQue100MenorQue1000(){		
+<span class="nc" id="L44">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Y_PRODUTO);</span>
+		
+<span class="nc" id="L46">		Cliente cliente = new ClienteAStub();</span>
+<span class="nc" id="L47">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L49">		driver.setCliente(cliente);</span>
+<span class="nc" id="L50">		driver.addProdutos(produto, QDADE_Y_PRODUTO);</span>
+<span class="nc" id="L51">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L53">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		assertTrue(valorComDesconto == 950d);</span>
+<span class="nc" id="L56">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMaiorQue1000(){		
+<span class="nc" id="L60">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Z_PRODUTO);</span>
+		
+<span class="nc" id="L62">		Cliente cliente = new ClienteAStub();</span>
+<span class="nc" id="L63">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L65">		driver.setCliente(cliente);</span>
+<span class="nc" id="L66">		driver.addProdutos(produto, QDADE_Z_PRODUTO);</span>
+<span class="nc" id="L67">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L69">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		assertTrue(valorComDesconto == produto.getValor());</span>
+<span class="nc" id="L72">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteBMenorQue100(){		
+<span class="nc" id="L76">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_X_PRODUTO);</span>
+		
+<span class="nc" id="L78">		Cliente cliente = new ClienteBStub();</span>
+<span class="nc" id="L79">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L81">		driver.setCliente(cliente);</span>
+<span class="nc" id="L82">		driver.addProdutos(produto, QDADE_X_PRODUTO);</span>
+<span class="nc" id="L83">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L85">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		assertTrue(valorComDesconto == 850d);</span>
+<span class="nc" id="L88">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteBMaiorQue100MenorQue1000(){		
+<span class="nc" id="L92">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Y_PRODUTO);</span>
+		
+<span class="nc" id="L94">		Cliente cliente = new ClienteBStub();</span>
+<span class="nc" id="L95">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L97">		driver.setCliente(cliente);</span>
+<span class="nc" id="L98">		driver.addProdutos(produto, QDADE_Y_PRODUTO);</span>
+<span class="nc" id="L99">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L101">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		assertTrue(valorComDesconto == 900d);	</span>
+<span class="nc" id="L104">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteBMaiorQue1000(){
+<span class="nc" id="L108">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Z_PRODUTO);</span>
+		
+<span class="nc" id="L110">		Cliente cliente = new ClienteBStub();</span>
+<span class="nc" id="L111">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L113">		driver.setCliente(cliente);</span>
+<span class="nc" id="L114">		driver.addProdutos(produto, QDADE_Z_PRODUTO);</span>
+<span class="nc" id="L115">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L117">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L119" title="All 2 branches missed.">		assertTrue(valorComDesconto == 950d);</span>
+<span class="nc" id="L120">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteCMenorQue100(){				
+<span class="nc" id="L124">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_X_PRODUTO);</span>
+		
+<span class="nc" id="L126">		Cliente cliente = new ClienteCStub();</span>
+<span class="nc" id="L127">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L129">		driver.setCliente(cliente);</span>
+<span class="nc" id="L130">		driver.addProdutos(produto, QDADE_X_PRODUTO);</span>
+<span class="nc" id="L131">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L133">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		assertTrue(valorComDesconto == 800d);</span>
+<span class="nc" id="L136">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteCMaiorQue100MenorQue1000(){	
+<span class="nc" id="L140">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Y_PRODUTO);</span>
+		
+<span class="nc" id="L142">		Cliente cliente = new ClienteCStub();</span>
+<span class="nc" id="L143">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L145">		driver.setCliente(cliente);</span>
+<span class="nc" id="L146">		driver.addProdutos(produto, QDADE_Y_PRODUTO);</span>
+<span class="nc" id="L147">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L149">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L151" title="All 2 branches missed.">		assertTrue(valorComDesconto == 850d);</span>
+<span class="nc" id="L152">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteCMaiorQue1000(){		
+
+<span class="nc" id="L157">		Cliente cliente = new ClienteCStub();</span>
+<span class="nc" id="L158">		Produto produto = new ProdutoStub();</span>
+		
+<span class="nc" id="L160">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Z_PRODUTO);</span>
+		
+<span class="nc" id="L162">		driver.setCliente(cliente);</span>
+<span class="nc" id="L163">		driver.addProdutos(produto, QDADE_Z_PRODUTO);</span>
+<span class="nc" id="L164">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L166">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L168" title="All 2 branches missed.">		assertTrue(valorComDesconto == 900d);</span>
+<span class="nc" id="L169">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span>br.unipe.testeInt.tests.model (04/07/2018 22:10:54)</div></body></html>
