@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CalculadoraDesconto.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">CalcularDescontoMockTest (04/07/2018 23:04:42)</a> &gt; <a href="../../index.html" class="el_group">SiteCalcularDesconto</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">br.unipe.teste.model</a> &gt; <span class="el_source">CalculadoraDesconto.java</span></div><h1>CalculadoraDesconto.java</h1><pre class="source lang-java linenums">package br.unipe.teste.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import br.unipe.teste.controller.DescontoUtils;
+
+public class CalculadoraDesconto {
+
+	private Cliente cliente;
+
+	private Map&lt;Produto, Integer&gt; produtos;
+
+	public CalculadoraDesconto() {
+<span class="fc" id="L15">		super();</span>
+<span class="fc" id="L16">		this.produtos = new HashMap&lt;Produto, Integer&gt;();</span>
+<span class="fc" id="L17">	}</span>
+
+	public Map&lt;Produto, Integer&gt; getProdutos() {
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">		if(produtos == null) {</span>
+<span class="nc" id="L21">			produtos = new HashMap&lt;Produto, Integer&gt;();</span>
+		}
+
+<span class="fc" id="L24">		return produtos;</span>
+	}
+
+	public Cliente getCliente() {
+<span class="fc" id="L28">		return cliente;</span>
+	}
+
+	public void setCliente(Cliente cliente) {
+<span class="fc" id="L32">		this.cliente = cliente;</span>
+<span class="fc" id="L33">	}</span>
+
+	public void addProdutos(Produto p, Integer qdade) {
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">		if(!getProdutos().containsKey(p)) {</span>
+<span class="fc" id="L37">			getProdutos().put(p, qdade);</span>
+		}
+<span class="fc" id="L39">	}</span>
+
+	public double calcularDesconto(Produto p) {
+<span class="fc" id="L42">		DescontoUtils descontoUtils = new DescontoUtils();</span>
+		
+<span class="fc" id="L44">		Double valorComDesconto = 0d;</span>
+		
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		for(Produto prod: getProdutos().keySet()) {</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">			if(p.equals(prod)) {</span>
+<span class="fc" id="L48">				valorComDesconto = prod.getValor() *</span>
+<span class="fc" id="L49">						descontoUtils.calcularFatorDeDesconto(getCliente().getTipoCliente(),</span>
+<span class="fc" id="L50">								produtos.get(prod));</span>
+			}
+		}
+		
+<span class="fc" id="L54">		return valorComDesconto;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span>CalcularDescontoMockTest (04/07/2018 23:04:42)</div></body></html>

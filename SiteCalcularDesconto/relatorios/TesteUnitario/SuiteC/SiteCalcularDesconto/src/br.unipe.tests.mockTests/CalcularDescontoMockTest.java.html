@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CalcularDescontoMockTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">SuiteClienteC (04/07/2018 23:04:19)</a> &gt; <a href="../../index.html" class="el_group">SiteCalcularDesconto</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">br.unipe.tests.mockTests</a> &gt; <span class="el_source">CalcularDescontoMockTest.java</span></div><h1>CalcularDescontoMockTest.java</h1><pre class="source lang-java linenums">package br.unipe.tests.mockTests;
+
+import static org.junit.Assert.assertTrue;
+
+import org.easymock.EasyMock;
+import org.easymock.EasyMockRule;
+import org.easymock.EasyMockSupport;
+import org.easymock.Mock;
+import org.easymock.TestSubject;
+import org.junit.Rule;
+import org.junit.Test;
+
+import br.unipe.teste.model.CalculadoraDesconto;
+import br.unipe.teste.model.Cliente;
+import br.unipe.teste.model.Produto;
+
+<span class="nc" id="L17">public class CalcularDescontoMockTest extends EasyMockSupport {</span>
+	
+<span class="nc" id="L19">	public static final Double VALOR_PRODUTO = 1000d;</span>
+<span class="nc" id="L20">	public static final Integer QDADE_X_PRODUTO = 10;</span>
+<span class="nc" id="L21">	public static final Integer QDADE_Y_PRODUTO = 100;</span>
+<span class="nc" id="L22">	public static final Integer QDADE_Z_PRODUTO = 1000;</span>
+	
+	public static final String CLIENTE_A = &quot;A&quot;;
+	public static final String CLIENTE_B = &quot;B&quot;;
+<span class="nc" id="L26">	public static final String CLIENTE_C = &quot;C&quot;;</span>
+	
+	@Rule
+<span class="nc" id="L29">	public EasyMockRule rule = new EasyMockRule(this);</span>
+	
+	@Mock
+	private Produto produto;
+	
+	@Mock
+	private Cliente cliente;
+	
+	@TestSubject
+<span class="nc" id="L38">	private final CalculadoraDesconto driver = new CalculadoraDesconto();</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMenorQue100(){		
+<span class="nc" id="L42">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_A);</span>
+<span class="nc" id="L43">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L45">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_A);</span>
+<span class="nc" id="L46">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L48">		replayAll();</span>
+		
+<span class="nc" id="L50">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_X_PRODUTO);</span>
+		
+<span class="nc" id="L52">		driver.setCliente(cliente);</span>
+<span class="nc" id="L53">		driver.addProdutos(produto, QDADE_X_PRODUTO);</span>
+<span class="nc" id="L54">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L56">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		assertTrue(valorComDesconto == 900d);</span>
+		
+<span class="nc" id="L60">		verifyAll();</span>
+<span class="nc" id="L61">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMaiorQue100MenorQue1000(){		
+<span class="nc" id="L65">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_A);</span>
+<span class="nc" id="L66">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L68">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_A);</span>
+<span class="nc" id="L69">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L71">		replayAll();</span>
+		
+<span class="nc" id="L73">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Y_PRODUTO);</span>
+		
+<span class="nc" id="L75">		driver.setCliente(cliente);</span>
+<span class="nc" id="L76">		driver.addProdutos(produto, QDADE_Y_PRODUTO);</span>
+<span class="nc" id="L77">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L79">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		assertTrue(valorComDesconto == 950d);</span>
+		
+<span class="nc" id="L83">		verifyAll();</span>
+<span class="nc" id="L84">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteAMaiorQue1000(){		
+<span class="nc" id="L88">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_A);</span>
+<span class="nc" id="L89">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L91">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_A);</span>
+<span class="nc" id="L92">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L94">		replayAll();</span>
+		
+<span class="nc" id="L96">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Z_PRODUTO);</span>
+		
+<span class="nc" id="L98">		driver.setCliente(cliente);</span>
+<span class="nc" id="L99">		driver.addProdutos(produto, QDADE_Z_PRODUTO);</span>
+<span class="nc" id="L100">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L102">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		assertTrue(valorComDesconto == VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L106">		verifyAll();</span>
+<span class="nc" id="L107">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteBMenorQue100(){		
+<span class="nc" id="L111">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_B);</span>
+<span class="nc" id="L112">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L114">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_B);</span>
+<span class="nc" id="L115">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L117">		replayAll();</span>
+		
+<span class="nc" id="L119">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_X_PRODUTO);</span>
+		
+<span class="nc" id="L121">		driver.setCliente(cliente);</span>
+<span class="nc" id="L122">		driver.addProdutos(produto, QDADE_X_PRODUTO);</span>
+<span class="nc" id="L123">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L125">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L127" title="All 2 branches missed.">		assertTrue(valorComDesconto == 850d);</span>
+		
+<span class="nc" id="L129">		verifyAll();</span>
+<span class="nc" id="L130">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteBMaiorQue100MenorQue1000(){		
+<span class="nc" id="L134">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_B);</span>
+<span class="nc" id="L135">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L137">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_B);</span>
+<span class="nc" id="L138">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L140">		replayAll();</span>
+		
+<span class="nc" id="L142">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Y_PRODUTO);</span>
+		
+<span class="nc" id="L144">		driver.setCliente(cliente);</span>
+<span class="nc" id="L145">		driver.addProdutos(produto, QDADE_Y_PRODUTO);</span>
+<span class="nc" id="L146">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L148">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		assertTrue(valorComDesconto == 900d);</span>
+		
+<span class="nc" id="L152">		verifyAll();</span>
+<span class="nc" id="L153">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteBMaiorQue1000(){		
+<span class="nc" id="L157">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_B);</span>
+<span class="nc" id="L158">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L160">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_B);</span>
+<span class="nc" id="L161">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L163">		replayAll();</span>
+		
+<span class="nc" id="L165">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Z_PRODUTO);</span>
+		
+<span class="nc" id="L167">		driver.setCliente(cliente);</span>
+<span class="nc" id="L168">		driver.addProdutos(produto, QDADE_Z_PRODUTO);</span>
+<span class="nc" id="L169">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L171">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L173" title="All 2 branches missed.">		assertTrue(valorComDesconto == 950d);</span>
+		
+<span class="nc" id="L175">		verifyAll();</span>
+<span class="nc" id="L176">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteCMenorQue100(){		
+<span class="nc" id="L180">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_C);</span>
+<span class="nc" id="L181">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L183">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_C);</span>
+<span class="nc" id="L184">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L186">		replayAll();</span>
+		
+<span class="nc" id="L188">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_X_PRODUTO);</span>
+		
+<span class="nc" id="L190">		driver.setCliente(cliente);</span>
+<span class="nc" id="L191">		driver.addProdutos(produto, QDADE_X_PRODUTO);</span>
+<span class="nc" id="L192">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L194">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L196" title="All 2 branches missed.">		assertTrue(valorComDesconto == 800d);</span>
+		
+<span class="nc" id="L198">		verifyAll();</span>
+<span class="nc" id="L199">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteCMaiorQue100MenorQue1000(){		
+<span class="nc" id="L203">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_C);</span>
+<span class="nc" id="L204">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L206">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_C);</span>
+<span class="nc" id="L207">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L209">		replayAll();</span>
+		
+<span class="nc" id="L211">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Y_PRODUTO);</span>
+		
+<span class="nc" id="L213">		driver.setCliente(cliente);</span>
+<span class="nc" id="L214">		driver.addProdutos(produto, QDADE_Y_PRODUTO);</span>
+<span class="nc" id="L215">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L217">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L219" title="All 2 branches missed.">		assertTrue(valorComDesconto == 850d);</span>
+		
+<span class="nc" id="L221">		verifyAll();</span>
+<span class="nc" id="L222">	}</span>
+	
+	@Test
+	public void testCalcularValorComDescontoClienteCMaiorQue1000(){		
+<span class="nc" id="L226">		System.out.println(&quot;&gt;&gt;&gt; TIPO CLIENTE: &quot; + CLIENTE_C);</span>
+<span class="nc" id="L227">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO UTILIZADO: &quot; + VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L229">		EasyMock.expect(cliente.getTipoCliente()).andReturn(CLIENTE_C);</span>
+<span class="nc" id="L230">		EasyMock.expect(produto.getValor()).andReturn(VALOR_PRODUTO);</span>
+		
+<span class="nc" id="L232">		replayAll();</span>
+		
+<span class="nc" id="L234">		System.out.println(&quot;&gt;&gt;&gt; QUANTIDADE DO PRODUTO UTILIZADO: &quot; + QDADE_Z_PRODUTO);</span>
+		
+<span class="nc" id="L236">		driver.setCliente(cliente);</span>
+<span class="nc" id="L237">		driver.addProdutos(produto, QDADE_Z_PRODUTO);</span>
+<span class="nc" id="L238">		double valorComDesconto = driver.calcularDesconto(produto);</span>
+		
+<span class="nc" id="L240">		System.out.println(&quot;&gt;&gt;&gt; VALOR DO PRODUTO COM DESCONTO: &quot; + valorComDesconto);</span>
+		
+<span class="nc bnc" id="L242" title="All 2 branches missed.">		assertTrue(valorComDesconto == 900d);</span>
+		
+<span class="nc" id="L244">		verifyAll();</span>
+<span class="nc" id="L245">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span>SuiteClienteC (04/07/2018 23:04:19)</div></body></html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SuiteClienteA" project="SiteCalcularDesconto" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="br.unipe.teste.suites.SuiteClienteA" time="0.001">
+    <testsuite name="br.unipe.tests.CalcularDescontoStubTest" time="0.001">
+      <testcase name="testCalcularValorComDescontoClienteAMenorQue100" classname="br.unipe.tests.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteAMaiorQue1000" classname="br.unipe.tests.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteAMaiorQue100MenorQue1000" classname="br.unipe.tests.CalcularDescontoStubTest" time="0.0"/>
+    </testsuite>
+  </testsuite>
+</testrun>

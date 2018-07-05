@@ -1,0 +1,5 @@
+package br.unipe.testeUnit.tests.model;
+
+public class CalcularDescontoTest {
+
+}

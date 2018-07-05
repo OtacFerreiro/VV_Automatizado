@@ -8,3 +8,17 @@
 1530750516177	Rename package 'br.unipe.testeUnit.tests.model'
 1530751374584	Rename type 'CalcularDescontoTest'
 1530751386760	Copy compilation unit
+1530753931579	Rename package 'br.unipe.testeInt.model'
+1530753942957	Rename package 'br.unipe.testeInt.controller'
+1530754067337	Delete element
+1530754086803	Rename package 'br.unipe.testeInt.stubs'
+1530754121605	Rename package 'br.unipe.testeInt.tests.model'
+1530755603192	Move compilation units
+1530755610418	Delete element
+1530755661114	Move compilation unit
+1530755718252	Move compilation unit
+1530755723580	Delete element
+1530755825655	Rename package 'br.unipe.tests'
+1530755832648	Rename package 'br.unipe.tests.stubTeste'
+1530755855233	Move compilation unit
+1530755860182	Move compilation unit

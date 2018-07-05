@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="br.unipe.tests" project="SiteCalcularDesconto" tests="18" started="18" failures="0" errors="0" ignored="0">
+  <testsuite name="br.unipe.tests.SuiteClienteC" time="0.0">
+    <testsuite name="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0">
+      <testcase name="testCalcularValorComDescontoClienteCMenorQue100" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteCMaiorQue1000" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteCMaiorQue100MenorQue1000" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+    </testsuite>
+  </testsuite>
+  <testsuite name="br.unipe.tests.SuiteClienteB" time="0.0">
+    <testsuite name="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0">
+      <testcase name="testCalcularValorComDescontoClienteBMenorQue100" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteBMaiorQue1000" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteBMaiorQue100MenorQue1000" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+    </testsuite>
+  </testsuite>
+  <testsuite name="br.unipe.tests.CalcularDescontoMockTest" time="0.453">
+    <testcase name="testCalcularValorComDescontoClienteAMenorQue100" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.406"/>
+    <testcase name="testCalcularValorComDescontoClienteBMenorQue100" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.016"/>
+    <testcase name="testCalcularValorComDescontoClienteCMenorQue100" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.0"/>
+    <testcase name="testCalcularValorComDescontoClienteCMaiorQue1000" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.016"/>
+    <testcase name="testCalcularValorComDescontoClienteBMaiorQue1000" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.0"/>
+    <testcase name="testCalcularValorComDescontoClienteAMaiorQue1000" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.0"/>
+    <testcase name="testCalcularValorComDescontoClienteCMaiorQue100MenorQue1000" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.015"/>
+    <testcase name="testCalcularValorComDescontoClienteBMaiorQue100MenorQue1000" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.0"/>
+    <testcase name="testCalcularValorComDescontoClienteAMaiorQue100MenorQue1000" classname="br.unipe.tests.CalcularDescontoMockTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="br.unipe.tests.SuiteClienteA" time="0.016">
+    <testsuite name="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.016">
+      <testcase name="testCalcularValorComDescontoClienteAMenorQue100" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+      <testcase name="testCalcularValorComDescontoClienteAMaiorQue1000" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.016"/>
+      <testcase name="testCalcularValorComDescontoClienteAMaiorQue100MenorQue1000" classname="br.unipe.teste.stubs.CalcularDescontoStubTest" time="0.0"/>
+    </testsuite>
+  </testsuite>
+</testrun>
